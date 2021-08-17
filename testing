@@ -1,0 +1,10 @@
+
+import requests
+def temp(city):
+    api_address="http://api.openweathermap.org/data/2.5/weather?q="+city+"&units=metric&appid=e9880e6ae9300213b9abcbf42ad1ad32"
+    json_data=requests.get(api_address).json()
+    temprature=json_data["main"]["temp"]
+    description=json_data["weather"][0]["description"]
+    return temprature,description
+
+print(temp("Mumbai"))
